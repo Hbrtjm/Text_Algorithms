@@ -1,0 +1,43 @@
+class Node:
+    def __init__(self):
+        self.children = {}
+        self.suffix_link = None
+        self.start = -1
+        self.end = -1
+        self.id = -1
+ 
+class SuffixTree:
+    def __init__(self, text: str):
+        """
+        Construct a suffix tree for the given text using Ukkonen's algorithm.
+ 
+        Args:
+            text: The input text for which to build the suffix tree
+        """
+        self.text = text + "$"
+        self.root = Node()
+        self.active_node = self.root
+        self.active_edge = 0
+        self.active_length = 0
+        self.remainder = 0
+        self.build_tree()
+ 
+    def build_tree(self):
+        """
+        Build the suffix tree using Ukkonen's algorithm.
+        """
+        # Implement Ukkonen's algorithm here
+        pass
+ 
+    def find_pattern(self, pattern: str) -> list[int]:
+        """
+        Find all occurrences of the pattern in the text.
+ 
+        Args:
+            pattern: The pattern to search for
+ 
+        Returns:
+            A list of positions where the pattern occurs in the text
+        """
+        # Implement pattern search using the suffix tree
+        pass

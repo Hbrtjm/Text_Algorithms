@@ -1,0 +1,32 @@
+class AhoCorasick:
+    def __init__(self, patterns: List[str]):
+    def _build_trie(self):
+    def _build_failure_links(self):
+    def search(self, text: str) -> List[Tuple[int, str]]:
+def compute_bad_character_table(pattern: str) -> dict:
+def compute_good_suffix_table(pattern: str) -> list[int]:
+def boyer_moore_pattern_match(text: str, pattern: str) -> list[int]:
+def compare_pattern_matching_algorithms(text: str, pattern: str) -> dict:
+def compare_suffix_structures(text: str) -> dict:
+def compute_lps_array(pattern: str) -> list[int]:
+def kmp_pattern_match(text: str, pattern: str) -> list[int]:
+def naive_pattern_match(text: str, pattern: str) -> list[int]:
+def rabin_karp_pattern_match(text: str, pattern: str, prime: int = 101) -> list[int]:
+    def hasha(s: str, base: int = 256, prime: int = 101) -> int:
+def set_nth_bit(n: int) -> int:
+def nth_bit(m: int, n: int) -> int:
+def make_mask(pattern: str) -> list:
+def shift_or(text: str, pattern: str) -> list[int]:
+def longest_common_substring(str1: str, str2: str) -> str:
+def longest_common_substring_multiple(strings: list[str]) -> str:
+def longest_palindromic_substring(text: str) -> str:
+class SuffixTree:
+    def __init__(self, text: str):
+    def canonize(self, s, k, p):
+    def test_and_split(self, s, k, p, t):
+    def update(self, s, k, i):
+    def get_edge(self, node, char):
+    def set_edge(self, node, char, child):
+    def build_tree(self):
+    def find_pattern(self, pattern: str) -> list[int]:
+def z_pattern_match(text: str, pattern: str) -> list[int]:

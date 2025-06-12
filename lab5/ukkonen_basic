@@ -1,0 +1,46 @@
+procedure test–and–split(s, (k, p), t):
+1. if k ≤ p then
+2. let g′(s, (k′, p′)) = s′ be the tk–transition from s;
+3. if t = tk′+p−k+1 then return(true, s)
+4. else
+5. replace the tk–transition above by transitions
+g′(s, (k′, k′ + p − k)) = r and g′(r, (k′ + p − k + 1, p′)) = s′
+where r is a new state;
+6. return(false, r)
+7. else
+8. if there is no t–transition from s then return(false, s)
+9. else return(true, s).
+
+procedure update(s, (k, i)):
+(s, (k, i − 1)) is the canonical reference pair for the active point;
+1. oldr ← root; (end–point, r) ← test–and–split(s, (k, i − 1), ti);
+2. while not(end–point) do
+3. create new transition g′(r, (i, ∞)) = r′ where r′ is a new state;
+4. if oldr 6 = root then create new suffix link f ′(oldr) = r;
+5. oldr ← r;
+6. (s, k) ← canonize(f ′(s), (k, i − 1));
+7. (end–point, r) ← test–and–split(s, (k, i − 1), ti);
+8. if oldr 6 = root then create new suffix link f ′(oldr) = s;
+9. return (s, k).
+
+procedure canonize(s, (k, p)):
+1. if p < k then return (s, k)
+2. else
+3. find the tk–transition g′(s, (k′, p′)) = s′ from s;
+4. while p′ − k′ ≤ p − k do
+5. k ← k + p′ − k′ + 1;
+6. s ← s′;
+7. if k ≤ p then find the tk–transition g′(s, (k′, p′)) = s′ from s;
+8. return (s, k).
+
+
+1. create states root and ⊥;
+2. for j ← 1, . . . , m do create transition g′(⊥, (−j, −j)) = root;
+3. create suffix link f ′(root) =⊥;
+4. s ← root; k ← 1; i ← 0;
+5. while ti+1 6 = ] do
+6. i ← i + 1;
+7. (s, k) ← update(s, (k, i));
+8. (s, k) ← canonize(s, (k, i))
+
+
